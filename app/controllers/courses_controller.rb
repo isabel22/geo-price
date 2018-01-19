@@ -9,6 +9,8 @@ class CoursesController < ApplicationController
     course = JSON.parse(CareerFoundry::Courses.get_details(selected_course))
     @title = course["slug"].titleize
     @start_dates = course["start_dates"]
+    current_region = CareerFoundry::Courses.region
+    @price = course["price"][current_region]
   end
 end
 

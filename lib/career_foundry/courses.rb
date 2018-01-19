@@ -12,6 +12,28 @@ module CareerFoundry
       fetch_one(course)
     end
 
+    def self.region(ip = nil)
+      ip_url = "http://ip-api.com/json/#{ip}"
+      ip_url = "http://ip-api.com/json" unless ip.present?
+
+      response = RestClient.get(ip_url)
+      if response.code == 200
+        json_response = JSON(response.body)
+        region_name = json_response["regionName"]
+        timezone = json_response["timezone"]
+        if region_name == 'London'
+          return 'UK'
+        elsif timezone.downcase.match('europe').present?
+          return 'EU'
+        else
+          return 'NA'
+        end
+      else
+        raise Exception.new("CareerFoundryCourses.region: Could not get timezone")
+      end
+      return 'EU'
+    end
+
     private
 
     def self.fetch_all
@@ -26,7 +48,6 @@ module CareerFoundry
 
     def self.fetch_one(course)
       course_url = "https://careerfoundry.com/en/api/courses/#{course}"
-      puts "course_url::: #{course_url}"
       response = RestClient.get(course_url)
       if response.code == 200
         response.body
