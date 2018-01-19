@@ -1,0 +1,7 @@
+<%= render partial: 'options' %>
+
+<h1><%= @title %></h1>
+
+<h2><%= "Start date: #{@start_dates[0]}" if @start_dates.length > 0 %></h2>
+
+<h2><%= "Next start date: #{@start_dates[1]}" if @start_dates.length > 1 %></h2>

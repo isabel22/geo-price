@@ -8,6 +8,10 @@ module CareerFoundry
       end
     end
 
+    def self.get_details(course)
+      fetch_one(course)
+    end
+
     private
 
     def self.fetch_all
@@ -16,7 +20,18 @@ module CareerFoundry
       if response.code == 200
         response.body
       else
-        raise Exception.new("CareerFoundryCourses.fetch_all: Could not get courses ")
+        raise Exception.new("CareerFoundryCourses.fetch_all: Could not get courses")
+      end
+    end
+
+    def self.fetch_one(course)
+      course_url = "https://careerfoundry.com/en/api/courses/#{course}"
+      puts "course_url::: #{course_url}"
+      response = RestClient.get(course_url)
+      if response.code == 200
+        response.body
+      else
+        raise Exception.new("CareerFoundryCourses.fetch_one: Could not get information for #{course}")
       end
     end
   end
