@@ -1,24 +1,7 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Steps to install the repository:
+* Clone the repository: `git clone https://github.com/isabel22/careerfoundry.git`
+* Go inside the directory `careerfoundry`: `cd careerfoundry`
+* Install the required packages: `bundle install`
+* Start the Rails server: `rails s`
