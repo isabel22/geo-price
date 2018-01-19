@@ -1,0 +1,5 @@
+
+<%= form_for :show, remote: true do |f| %>
+  Select a course: <%= select_tag 'f.courses', options_for_select(@course_options) %>
+  <%= f.submit "Go" %>
+<% end %>
