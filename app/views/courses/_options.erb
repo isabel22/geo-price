@@ -1,4 +1,6 @@
-<%= form_for :show, url: display_info_courses_path, method: :get do |f| %>
-  Select a course: <%= select_tag 'course', options_for_select(@course_options) %>
-  <%= f.submit "Go" %>
+<%= form_for :show, url: display_info_courses_path, class: "form-inline", method: :get do |f| %>
+  <div class="form-group">
+    <%= select_tag 'course', options_for_select(@course_options), {:class => "custom-select my-1 mr-sm-2"} %>
+    <%= f.submit "Go", :class => "btn btn-primary" %>
+  </div>
 <% end %>

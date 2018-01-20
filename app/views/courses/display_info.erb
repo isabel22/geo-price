@@ -1,14 +1,15 @@
-<%= render partial: 'options' %>
-
-<h1><%= @title %></h1>
-
-<h2><%= "Start date: #{@start_dates[0]}" if @start_dates.length > 0 %></h2>
-
-<h2><%= "Next start date: #{@start_dates[1]}" if @start_dates.length > 1 %></h2>
-
-<% if @price.present? %>
-  <h3><%= "Total: #{@price["total"]}" %> </h3>
-  <h3><%= "Upfront: #{@price["upfront"]}" %> </h3>
-  <h3><%= "Installment: #{@price["installment"]}" %> </h3>
-  <h3><%= "Cycles: #{@price["cycles"]}" %> </h3>
-<% end %>
+<div class="card text-center">
+  <div class="card-header">
+    CareerFoundry
+  </div>
+  <div class="card-body">
+    <h5 class="card-title"><%= @title %></h5>
+    <p class="card-text"><%= @description %> </p>
+    <p class="card-text">Next start date: <%= @start_dates[0] %> </p>
+    <a href=<%= @course_link %> target="_blank" class="btn btn-primary">View course details</a>
+  </div>
+  <div class="card-footer text-muted">
+    Check for more courses here:
+    <%= render partial: 'options' %>
+  </div>
+</div>

@@ -6,7 +6,3 @@ Steps to install the repository:
 * Install the required packages: `bundle install`
 * Start the Rails server: `rails s`
 * Go to `http://localhost:3000/` and select a career
-
-Missing tasks
-* specs
-* Make a better frontend

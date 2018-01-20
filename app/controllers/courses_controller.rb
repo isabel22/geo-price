@@ -10,7 +10,11 @@ class CoursesController < ApplicationController
     @title = course["slug"].titleize
     @start_dates = course["start_dates"]
     current_region = CareerFoundry::Courses.region
-    @price = course["price"][current_region]
+    price = course["price"][current_region]
+    @course_link = "http://www.careerfoundry.com/en/courses/#{selected_course}"
+
+    learn_description = 'learn' if @title.downcase.match('become').nil?
+    @description = "In only #{price['cycles']} cycles you will #{learn_description} #{@title.downcase} for only #{price['total']}"
   end
 end
 
